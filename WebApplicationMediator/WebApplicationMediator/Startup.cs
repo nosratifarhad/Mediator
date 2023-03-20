@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using WebApplicationMediator.IOC;
 
 namespace WebApplicationMediator
@@ -28,8 +27,12 @@ namespace WebApplicationMediator
             ///
             ///NuGet\Install-Package Mediator.Abstractions -Version 2.1.1
             ///dotnet add package Mediator.Abstractions --version 2.1.1
-            ///
 
+            services.AddMediator(options =>
+            {
+                options.Namespace = "WebApplicationMediator";
+                options.ServiceLifetime = ServiceLifetime.Transient;
+            });
 
             #endregion [ Mediator ]
 
