@@ -6,9 +6,9 @@
 
 MediatR.Extensions.Microsoft.DependencyInjection
 
-### Second you must install these packages :
+### Second You need to install the following packages :
 
 NuGet\Install-Package Mediator.SourceGenerator 
+NuGet\Install-Package Mediator.Abstractions 
 
-NuGet\Install-Package Mediator.Abstractions -Version 2.1.1
-
+now 
