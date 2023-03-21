@@ -16,6 +16,6 @@ NuGet\Install-Package Mediator.Abstractions
 
 ### you don't need send "Assembly" time to add Mediator on project in Startup.cs file . like MediatR : 
 
-```
+```csharp
 services.AddMediatR(typeof(Program).Assembly);
 ```
