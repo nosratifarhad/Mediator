@@ -18,4 +18,5 @@ NuGet\Install-Package Mediator.Abstractions
 
 ```csharp
 services.AddMediatR(typeof(Program).Assembly);
+//services.AddMediatR(Assembly.GetExecutingAssembly());
 ```
