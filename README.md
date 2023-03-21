@@ -1,6 +1,6 @@
 # Mediator
 
-### Second You need to install the following packages :
+### first You need to install the following packages :
 ```
 NuGet\Install-Package Mediator.SourceGenerator 
 
