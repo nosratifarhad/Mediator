@@ -14,9 +14,18 @@ NuGet\Install-Package Mediator.Abstractions
 ```
 ### Now differences in its implementation is that :
 
-### you don't need send "Assembly" time to add Mediator on project in Startup.cs file . like MediatR : 
+### you don't need send "Assembly" time to add Mediator Services on project in Startup.cs file . like MediatR : 
 
 ```csharp
 services.AddMediatR(typeof(Program).Assembly);
 //services.AddMediatR(Assembly.GetExecutingAssembly());
+```
+yor just need add service in startupo
+
+```csharp
+            services.AddMediator(options =>
+            {
+                options.Namespace = "WebApplicationMediator";
+                options.ServiceLifetime = ServiceLifetime.Transient;
+            });
 ```
