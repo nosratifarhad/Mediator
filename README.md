@@ -17,11 +17,12 @@ services.AddMediator(options =>
 });
 ```
 ### And the Final level for use "Mediator" : 
-### You should use "ICommand" and "IQuery" , like this :
+### You should use "ICommand" for command requests
+### And use "IQuery" for get requests , like this :
 
 ```csharp
 
-// ICommand
+// ICommand  or command requests
 public class CreateProductCommand : ICommand
 {
     public string ProductTitle { get; set; }
@@ -29,7 +30,7 @@ public class CreateProductCommand : ICommand
     public string ProductName { get; set; }
 }
 
-// IQuery
+// IQuery for get requests
 public class GetProductQuery : IQuery<IEnumerable<ProductVM>>
 {
     public int ProductId { get; set; }
