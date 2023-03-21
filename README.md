@@ -20,12 +20,13 @@ NuGet\Install-Package Mediator.Abstractions
 services.AddMediatR(typeof(Program).Assembly);
 //services.AddMediatR(Assembly.GetExecutingAssembly());
 ```
-yor just need add service in startupo
+### You only need to set two fields of its options
+### Set "Namespace" and Set "ServiceLifetime"
 
 ```csharp
-            services.AddMediator(options =>
-            {
-                options.Namespace = "WebApplicationMediator";
-                options.ServiceLifetime = ServiceLifetime.Transient;
-            });
+services.AddMediator(options =>
+{
+    options.Namespace = "WebApplicationMediator";
+    options.ServiceLifetime = ServiceLifetime.Transient;
+});
 ```
