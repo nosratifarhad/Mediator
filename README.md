@@ -2,7 +2,11 @@
 
 ### this like is mediatR but one of the difference between to packeges 
 
-### 1 first : you must install this pakages :
+### first : If you have the following package installed, uninstall it :
+
+## MediatR.Extensions.Microsoft.DependencyInjection
+
+### Second you must install these packages :
 
 NuGet\Install-Package Mediator.SourceGenerator 
 
