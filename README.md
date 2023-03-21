@@ -1,6 +1,6 @@
 # Mediator
 
-### this like is mediatR but one of the difference between to packeges 
+## Mediator is similar to mediatR, but one of the differences in its implementation is that
 
 ### First If you have the following package installed, uninstall it :
 
