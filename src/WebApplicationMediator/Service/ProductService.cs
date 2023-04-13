@@ -1,4 +1,5 @@
 ﻿using WebApplicationMediator.Dtos;
+using WebApplicationMediator.Service.Contracts;
 using WebApplicationMediator.ViewModels.ProductViewModels;
 
 namespace WebApplicationMediator.Service

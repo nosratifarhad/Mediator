@@ -1,6 +1,6 @@
 ﻿using Mediator;
 using WebApplicationMediator.Dtos;
-using WebApplicationMediator.Service;
+using WebApplicationMediator.Service.Contracts;
 
 namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProduct
 {

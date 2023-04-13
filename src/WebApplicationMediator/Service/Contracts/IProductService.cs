@@ -1,7 +1,7 @@
 ﻿using WebApplicationMediator.Dtos;
 using WebApplicationMediator.ViewModels.ProductViewModels;
 
-namespace WebApplicationMediator.Service
+namespace WebApplicationMediator.Service.Contracts
 {
     public interface IProductService
     {
