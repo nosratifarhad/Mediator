@@ -26,7 +26,7 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
         {
             var createProduct = GenereateCreateProductDtoFromaCommand(request);
 
-            await _productRepository.CreateProduct(createProduct).ConfigureAwait(false);
+            await _productRepository.CreateProduct(createProduct, cancellationToken).ConfigureAwait(false);
 
             return Unit.Value;
         }
