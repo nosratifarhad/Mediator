@@ -41,19 +41,28 @@ public class CreateProductCommand : ICommand
 
     public string ProductName { get; set; }
 }
-
+#region Handle
 // Use ICommandHandler In Command Handler
-public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand>
+
+public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
 {
-    public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
-        var createProductDto = GenereateCreateProductDtoFromaCommand(request);
+   var createProduct = GenereateCreateProductDtoFromaCommand(request);
 
-        await _productService.CreateProduct(createProductDto).ConfigureAwait(false);
+   await _productRepository.CreateProduct(createProduct).ConfigureAwait(false);
 
-        return Unit.Value;
-    }
+   return Unit.Value;
 }
+#endregion
+
+#region Private
+
+private Product GenereateCreateProductDtoFromaCommand(CreateProductCommand command)
+   => new Product()
+   {
+       //Map
+   };
+
+#endregion Private
 ```
 ## Sample Query And QueryHandler
 
@@ -64,15 +73,31 @@ public class GetProductQuery : IQuery<IEnumerable<ProductVM>>
     public int ProductId { get; set; }
 }
 
+#region Handle
 // Use IQueryHandler In Query Handler
-public class GetProductQueryHandler : IQueryHandler<GetProductQuery, IEnumerable<ProductVM>>
-{
-    public async ValueTask<IEnumerable<ProductVM>> Handle(GetProductQuery request, CancellationToken cancellationToken)
-    {
-        var productVMList = await _productService.GetProduct().ConfigureAwait(false);
 
-        return productVMList;
-    }
+public async ValueTask<IEnumerable<ProductVM>> Handle(GetProductQuery request, CancellationToken cancellationToken)
+{
+   var products = await _productService.GetProduct().ConfigureAwait(false);
+
+   var productVMs = CreateProductVM(products);
+
+   return productVMs;
 }
+
+#endregion
+
+#region Private
+
+private IEnumerable<ProductVM> CreateProductVM(IEnumerable<Product> products)
+{
+   IEnumerable<ProductVM> productVMs = new List<ProductVM>();
+   foreach (var product in products)
+       new List<ProductVM>();
+
+   return productVMs;
+}
+
+#endregion Private
 ```
 
