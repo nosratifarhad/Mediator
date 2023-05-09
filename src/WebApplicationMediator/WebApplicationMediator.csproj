@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Notifications\" />
+    <Folder Include="Application\Features\Notifications\" />
   </ItemGroup>
 
 </Project>

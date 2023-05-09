@@ -1,6 +1,6 @@
 ﻿using Mediator;
-using WebApplicationMediator.Dtos;
-using WebApplicationMediator.Service.Contracts;
+using WebApplicationMediator.Domain;
+using WebApplicationMediator.Domain.Entity;
 
 namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProduct
 {
@@ -8,14 +8,14 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
     {
         #region Fields
 
-        private readonly IProductService _productService;
+        private readonly IProductRepository _productRepository;
         #endregion Fields
 
         #region Ctor
 
-        public CreateProductCommandHandler(IProductService productService)
+        public CreateProductCommandHandler(IProductRepository productRepository)
         {
-            this._productService = productService;
+            this._productRepository = productRepository;
         }
 
         #endregion Ctor
@@ -26,7 +26,7 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
         {
             var createProductDto = GenereateCreateProductDtoFromaCommand(request);
 
-            await _productService.CreateProduct(createProductDto).ConfigureAwait(false);
+            await _productRepository.CreateProduct(createProductDto).ConfigureAwait(false);
 
             return Unit.Value;
         }
@@ -34,10 +34,10 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
 
         #region Private
 
-        private CreateProductDto GenereateCreateProductDtoFromaCommand(CreateProductCommand command)
-            => new CreateProductDto()
+        private Product GenereateCreateProductDtoFromaCommand(CreateProductCommand command)
+            => new Product()
             {
-                //Map Prop
+                //Map
             };
 
         #endregion Private
