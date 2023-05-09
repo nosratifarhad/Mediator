@@ -4,8 +4,8 @@ namespace WebApplicationMediator.Domain
 {
     public interface IProductRepository
     {
-        Task CreateProduct(Product product);
+        Task CreateProduct(Product product, CancellationToken cancellationToken);
 
-        Task<IEnumerable<Product>> GetProduct();
+        Task<IEnumerable<Product>> GetProduct(CancellationToken cancellationToken);
     }
 }

@@ -25,7 +25,7 @@ namespace WebApplicationMediator.Application.Queries.Products.GetProduct
 
         public async ValueTask<IEnumerable<ProductVM>> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productService.GetProduct().ConfigureAwait(false);
+            var products = await _productService.GetProduct(cancellationToken).ConfigureAwait(false);
 
             var productVMs = CreateProductVM(products);
 
