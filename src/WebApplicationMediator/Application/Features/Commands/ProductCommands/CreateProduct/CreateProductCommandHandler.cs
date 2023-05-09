@@ -24,9 +24,9 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
 
         public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var createProductDto = GenereateCreateProductDtoFromaCommand(request);
+            var createProduct = GenereateCreateProductDtoFromaCommand(request);
 
-            await _productRepository.CreateProduct(createProductDto).ConfigureAwait(false);
+            await _productRepository.CreateProduct(createProduct).ConfigureAwait(false);
 
             return Unit.Value;
         }
