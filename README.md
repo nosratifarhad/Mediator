@@ -48,7 +48,7 @@ public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationTo
 {
    var createProduct = GenereateCreateProductDtoFromaCommand(request);
 
-   await _productRepository.CreateProduct(createProduct).ConfigureAwait(false);
+   await _productRepository.CreateProduct(createProduct,cancellationToken).ConfigureAwait(false);
 
    return Unit.Value;
 }
@@ -78,7 +78,7 @@ public class GetProductQuery : IQuery<IEnumerable<ProductVM>>
 
 public async ValueTask<IEnumerable<ProductVM>> Handle(GetProductQuery request, CancellationToken cancellationToken)
 {
-   var products = await _productService.GetProduct().ConfigureAwait(false);
+   var products = await _productService.GetProduct(cancellationToken).ConfigureAwait(false);
 
    var productVMs = CreateProductVM(products);
 
