@@ -5,8 +5,6 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
 {
     public class CreateProductCommand : ICommand
     {
-        public string ProductTitle { get; set; }
-
         public string ProductName { get; set; }
     }
 }

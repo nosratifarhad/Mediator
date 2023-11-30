@@ -37,8 +37,11 @@ namespace WebApplicationMediator.Application.Queries.Products.GetProduct
         #region Private
 
         private ProductVM CreateProductVM(Product products)
-            => new ProductVM();
-
+            => new ProductVM()
+            {
+                Name = products.Name,
+                Id = products.Id,
+            };
 
         #endregion Private
 

@@ -30,15 +30,13 @@ namespace WebApplicationMediator.Application.Commands.ProductCommands.CreateProd
 
             return Unit.Value;
         }
+
         #endregion
 
         #region Private
 
         private Product GenereateCreateProductFromaCommand(CreateProductCommand command)
-            => new Product()
-            {
-                //Map
-            };
+            => new Product(command.ProductName);
 
         #endregion Private
     }
