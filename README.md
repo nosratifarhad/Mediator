@@ -2,11 +2,9 @@
 
 ## More details about the architecture .
 
-* 1 - Application Folder
-    * Application Layer 
+* 1 - Application Folder is Application Layer 
     * In This Layer , Have Command And Queries And Handlers .
-* 2 - Service Folder
-    * Service Layer 
+* 2 - Service Folder is Service Layer 
     * For Data Persistence And Use ORM (Entity FrameWork). 
 
 ### first You need to install the following packages :
@@ -37,8 +35,6 @@ services.AddMediator(options =>
 // Use ICommand In Command Model
 public class CreateProductCommand : ICommand
 {
-    public string ProductTitle { get; set; }
-
     public string ProductName { get; set; }
 }
 #region Handle
@@ -56,11 +52,8 @@ public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationTo
 
 #region Private
 
-private Product GenereateCreateProductDtoFromaCommand(CreateProductCommand command)
-   => new Product()
-   {
-       //Map
-   };
+private Product GenereateCreateProductFromaCommand(CreateProductCommand command)
+   => new Product(command.ProductName);
 
 #endregion Private
 ```
@@ -91,11 +84,16 @@ public async ValueTask<IEnumerable<ProductVM>> Handle(GetProductQuery request, C
 
 private IEnumerable<ProductVM> CreateProductVM(IEnumerable<Product> products)
 {
-   IEnumerable<ProductVM> productVMs = new List<ProductVM>();
-   foreach (var product in products)
-       new List<ProductVM>();
+  ICollection<ProductVM> productVMs = new List<ProductVM>();
 
-   return productVMs;
+  foreach (var product in products)
+      productVMs.Add(new ProductVM()
+      {
+          Id = product.Id,
+          Name = product.Name,
+      });
+
+  return productVMs;
 }
 
 #endregion Private
